@@ -76,20 +76,15 @@ label{
 	border: none;
 	border-radius: 3px;
 	box-shadow: 2px 2px 15px rgba(180,114,82,1.00) inset, -2px -2px 15px rgba(180,114,82,1.00) inset;
-	cursor: pointer;
 }
 
 #convert{
 	width: 60px;
 	height: 60px;
 	margin: 55px;
-}
-
-#error{
-	display: none;
-	margin: -30px 0 10px 0;
-	color: rgba(196,0,0,1.00);
-	font-size: 1.6rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #clear{
@@ -97,6 +92,7 @@ label{
 	height: 45px;
 	margin: 40px 0;
 	padding: 5px;
+	cursor: pointer;
 }
 
 
