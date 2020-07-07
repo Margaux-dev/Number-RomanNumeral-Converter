@@ -1,6 +1,5 @@
 let numNumbers = document.querySelector("#num");
 let romanNumbers = document.querySelector("#roman");
-let convertButton = document.querySelector("#convert");
 let clearButton = document.querySelector("#clear");
 
 
@@ -28,38 +27,33 @@ function romanToNumeral (romNum) {
 	let result = 0;
 	let prevIndex = 0;
 	let roman = romNum.toUpperCase();
+	let regex = /[ivxlcdm]/gi;
 	
-	for (let i = roman.length -1; i >= 0; i--) {
-		if(romanValues.indexOf(roman[i]) >= prevIndex) {
-			result += numValues[roman[i]];
-		} else {
-			result -= numValues[roman[i]];
+	if (regex.test(romNum) === true) {
+		for (let i = roman.length -1; i >= 0; i--) {
+			if(romanValues.indexOf(roman[i]) >= prevIndex) {
+				result += numValues[roman[i]];
+			} else {
+				result -= numValues[roman[i]];
+			}
+			prevIndex = romanValues.indexOf(roman[i]);
 		}
-		prevIndex = romanValues.indexOf(roman[i]);
-	}
 	numNumbers.value = result;
-	return numNumbers.value;
+	return numNumbers.value;	
+	}
 }
 
 
 // CONVERT
-function convert (e) {
-	e.preventDefault();
-	
-	if (numNumbers.value !== "") {
-		numToRoman(numNumbers.value);
-	} else if (romanNumbers.value !== "") {
-		let regex = /[ivxlcdm]/gi;
-		if (regex.test(romanNumbers.value) == true) {
-		romanToNumeral(romanNumbers.value);
-		} else {
-			document.querySelector("#error").style.display = "inline";
-		}
-	}
-	numNumbers.disabled = true;
-	romanNumbers.disabled = true;
-}
+numNumbers.addEventListener("keyup", () => {
+	numToRoman(numNumbers.value);
+	romanToNumeral(romanNumbers.value);
+});
 
+romanNumbers.addEventListener("keyup", () => {
+	romanToNumeral(romanNumbers.value);
+	numToRoman(numNumbers.value);
+});
 
 
 // CLEAR THE TEXTAREAS
@@ -67,11 +61,6 @@ function clear (e) {
 	e.preventDefault();
 	numNumbers.value = "";
 	romanNumbers.value = "";
-	numNumbers.disabled = false;
-	romanNumbers.disabled = false;
-	document.querySelector("#error").style.display = "none";
 }
 	
-
-convertButton.addEventListener("click", convert);
 clearButton.addEventListener("click", clear);
