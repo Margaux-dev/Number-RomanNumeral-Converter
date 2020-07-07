@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>JS Number to Roman Numeral Converter</title>
+		<link rel="stylesheet" href="styles.css">
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<h1>Number ⇄ Roman Numeral Converter</h1>
+		<form>
+			<div class="num-div">
+				<label for="num">Numbers</label>
+				<input name="num" id="num" placeholder="Enter your number here..." type="number">
+			</div>
+			
+			<button type="submit" id="convert" aria-label="Convert"><i class="fas fa-exchange-alt" aria-hidden="true"></i></button>
+			<div class="roman-div">
+				<label for="roman">Roman Numerals</label>
+				<input name="roman" id="roman" placeholder="Enter your roman numeral here..." type="text">
+			</div>
+		</form>
+		<p id="error">This is not a roman numeral !</p>
+		<button type="submit" id="clear">New conversion</button>
+		
+		<script src="script.js"></script>
+	</body>
+</html>
